@@ -25,6 +25,11 @@ class MicropostsController < ApplicationController
   def micropost_params
     params.require(:micropost).permit(:content)
   end
+  
+  def favorite
+    @micropost = Micropost.find(params[:id])
+    @favorite = @micropost.favorite.page(params[:page])
+  end
 
   def correct_user
     @micropost = current_user.microposts.find_by(id: params[:id])
