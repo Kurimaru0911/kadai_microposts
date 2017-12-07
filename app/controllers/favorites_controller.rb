@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  
   def create
     p '------------create'
     p micropost = Micropost.find(params[:micropost_id])
